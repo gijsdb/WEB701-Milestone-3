@@ -1,14 +1,20 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-4">
-          <h1>Farmer</h1>
+     <div class="col section1">
+       <h1>Meet the farmers behind some of the best hops in the region</h1>
+     </div>
+    </div>
+
+    <div class="row section2">
+      <div class="col-md-4 farmer-module">
+
       </div>
-      <div class="col-4">
-         <h1>page</h1>
+      <div class="col-md-4">
+
       </div>
-      <div class="col-4">
-        <h1>here</h1>
+      <div class="col-md-4">
+
       </div>
     </div>
   </div>
@@ -18,6 +24,20 @@
 
 </script>
 
-<style>
+<style scoped>
+.section1 {
+  height: 89vh;
+  width: 100vw;
+  background-color: red;
+}
 
+.section2 {
+  height: 80vh;
+  width: 100vw;
+  background-color: yellow;
+}
+
+.farmer-module {
+  background-color: green;
+}
 </style>

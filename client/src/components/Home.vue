@@ -1,10 +1,12 @@
 <template>
   <div class="container-fluid">
 
-    <div class="row">
-      <div class="col section1">
-        <h1>Welcome to HopsCo</h1>
-        <button>Learn more</button>
+    <div class="row section1 vertical-align">
+      <div class="col-12">
+        <h1>Welcome to HopsCo</h1><br>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-outline-light">Learn more</button>
       </div>
     </div>
 
@@ -14,8 +16,8 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-4 section3">
+    <div class="row section3 vertical-align">
+      <div class="col-md-4">
         <h3>Variety</h3>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione totam illo,
@@ -23,7 +25,7 @@
           Voluptas quas laborum nemo esse autem quo tenetur!
         </p>
       </div>
-      <div class="col-md-4 section3">
+      <div class="col-md-4">
         <h3>Consistency</h3>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione totam illo,
@@ -31,7 +33,7 @@
           Voluptas quas laborum nemo esse autem quo tenetur!
         </p>
       </div>
-      <div class="col-md-4 section3">
+      <div class="col-md-4">
         <h3>Quality</h3>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione totam illo,
@@ -41,8 +43,8 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col section4">
+    <div class="row section4 vertical-align">
+      <div class="col">
         <h2>The tasman region is prime for growing the best hops</h2>
       </div>
     </div>
@@ -65,29 +67,37 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .section1 {
-  height: 85vh;
+  height: 90vh;
   width: 100vw;
-  background-color: red;
+  color: #fff;
+  background-image: url("../assets/img/mainbg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .section2 {
   height: 50vh;
   width: 100vw;
-  background-color: green;
+  background-color: #fff;
 }
 
 .section3 {
   height: 50vh;
   width: 100vw;
-  background-color: yellow;
+  background-color: #007C26;
 }
 
 .section4 {
   height: 50vh;
   width: 100vw;
-  background-color: orange;
+  color: #fff;
+  background-image: url("../assets/img/tasmanbg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 </style>
