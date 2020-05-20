@@ -16,8 +16,12 @@
           <router-link class="nav-item nav-link" to="/farmers">Farmers</router-link>
         </div>
       </div>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Register</button>
+      <button class="btn btn-outline-success my-2 my-sm-0">
+        <router-link to="/login">Login</router-link>
+      </button>
+      <button class="btn btn-outline-success my-2 my-sm-0">
+        <router-link to="/register">Register</router-link>
+      </button>
     </nav>
 </template>
 

@@ -10,9 +10,12 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col section2">
+    <div class="row section2 pt-5 pb-5">
+      <div class="col-12">
         <h2>We provide the best quality hops from the local area</h2>
+      </div>
+      <div class="col-12">
+        <img src="../assets/img/isolatedHop.png" class="isolatedhop pt-3"/>
       </div>
     </div>
 
@@ -79,14 +82,18 @@ export default {
 }
 
 .section2 {
-  height: 50vh;
   width: 100vw;
   background-color: #fff;
+}
+
+.isolatedhop {
+  width: 15em;
 }
 
 .section3 {
   height: 50vh;
   width: 100vw;
+  color: #fff;
   background-color: #007C26;
 }
 

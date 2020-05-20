@@ -23,6 +23,7 @@
   width: 100vw;
   color: #fff;
   background-color: #000000;
+  overflow-y: hidden;
 }
 
 </style>

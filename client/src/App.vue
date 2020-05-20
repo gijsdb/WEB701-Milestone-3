@@ -21,7 +21,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  overflow-y: hidden;
+  overflow-y: hidden !important;
 }
 
 .vertical-align {
