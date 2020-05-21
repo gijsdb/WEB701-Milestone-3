@@ -19,11 +19,11 @@
 <style>
 .footer {
   padding: 1em 0 1em 0;
-  margin: 0;
+  margin: auto 0;
   width: 100vw;
   color: #fff;
   background-color: #000000;
-  overflow-y: hidden;
+  overflow-x: hidden !important;
 }
 
 </style>

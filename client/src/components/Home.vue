@@ -4,9 +4,11 @@
     <div class="row section1 vertical-align">
       <div class="col-12">
         <h1>Welcome to HopsCo</h1><br>
-      </div>
-      <div class="col-12">
-        <button class="btn btn-outline-light">Learn more</button>
+        <div class="row">
+           <div class="col-12">
+            <button class="btn btn-outline-light">Learn more</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -83,6 +85,7 @@ export default {
 
 .section2 {
   width: 100vw;
+  color: #42B983;
   background-color: #fff;
 }
 
@@ -91,10 +94,10 @@ export default {
 }
 
 .section3 {
-  height: 50vh;
+  padding: 1em 1em 1em 1em;
   width: 100vw;
   color: #fff;
-  background-color: #007C26;
+  background-color: #42B983;
 }
 
 .section4 {

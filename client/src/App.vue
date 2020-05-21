@@ -21,7 +21,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  max-width: 100%;
 }
 
 .vertical-align {
@@ -29,5 +30,11 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: row;
+}
+
+form input {
+  border-color: #42b983;
+  color: #42b983;
+  border-width: 1px;
 }
 </style>
