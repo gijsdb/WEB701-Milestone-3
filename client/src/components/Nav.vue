@@ -17,10 +17,10 @@
         </div>
       </div>
       <button class="btn btn-outline-success my-2 my-sm-0">
-        <router-link to="/login">Login</router-link>
+        <router-link class="nav-btn" to="/login">Login</router-link>
       </button>
       <button class="btn btn-outline-success my-2 my-sm-0">
-        <router-link to="/register">Register</router-link>
+        <router-link class="nav-btn" to="/register">Register</router-link>
       </button>
     </nav>
 </template>
@@ -47,6 +47,23 @@
 .nav-link{
   color: #42b983 !important;
   font-size: 1.5em;
+  transition: .5s;
+}
+
+.nav-link:hover {
+  font-size: 1.7em;
+  text-decoration: bold;
+  transition: .5s;
+}
+
+.nav-btn {
+  color: #42b983 !important;
+  transition: .5s;
+}
+
+.nav-btn:hover {
+  color: #fff !important;
+  transition: .5s;
 }
 
 .navbar-brand {
