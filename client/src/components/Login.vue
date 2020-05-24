@@ -21,7 +21,8 @@
                   v-model="password"
                   placeholder="password"
                 />
-                <div class="error" v-html="error"/><br>
+                <div class="error" v-html="errorMessage"/><br>
+                <div class="success" v-html="successMessage"/><br>
                 <button class="btn btn-outline-success" @click="login">Login</button>
             </form>
         </div>
@@ -31,15 +32,39 @@
 </template>
 
 <script>
+import authService from '../services/authService';
 import Footer from './Footer.vue';
 
 export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+      errorMessage: null,
+      successMessage: null,
+    };
+  },
   components: {
     Footer,
   },
   computed: {
   },
   methods: {
+    async login() {
+      try {
+        const response = await authService.login({
+          email: this.email,
+          password: this.password,
+        });
+        this.$store.dispatch('setToken', response.data.token);
+        this.$store.dispatch('setUser', response.data.user);
+        console.log(this.$store);
+        console.log('success');
+        // this.$router.push('marketplace')
+      } catch (error) {
+        this.errorMessage = error.response.data.error;
+      }
+    },
   },
 };
 </script>

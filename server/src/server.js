@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
     res.json("Chur")
 })
 
-sequelize.sync()
+sequelize.sync({})
     .then(() => {
         app.listen(config.port || 8091);
         console.log(`Server started on ${config.port}`)

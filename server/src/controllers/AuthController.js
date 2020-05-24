@@ -11,11 +11,12 @@ function jwtSignUser (user) {
 
 module.exports = {
     async register (req, res) {
-      console.log(req.body)
       try {
         const user = await User.create(req.body)
         res.send(user.toJSON())
+        console.log("User created success")
       } catch(err) {
+        console.log(err)
         res.status(400).send({
             error: 'This email is in use'
         })
@@ -30,6 +31,7 @@ module.exports = {
           }
         })
         if(!user) {
+          console.log("no user found")
           res.status(403).send({
             error: 'No user found with details'
           })
@@ -37,18 +39,21 @@ module.exports = {
 
         const isPasswordValid = await user.comparePassword(password)
         if(!isPasswordValid) {
+          console.log("wrong pass")
           return res.status(403).send({
             error: 'Login info not correct'
           })
         }
 
         const userJson = user.toJSON()
+        console.log("logged in")
         res.send({
           user: userJson,
           token: jwtSignUser(userJson)
         })
 
       } catch(err) {
+        console.log(err)
         res.status(500).send({
             error: 'An error occured'
         })
