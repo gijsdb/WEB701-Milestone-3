@@ -7,7 +7,7 @@
               <h1>Welcome, create an account below</h1>
             </div>
           </div>
-            <form class="pb-5" autocomplete="off">
+            <form class="pb-5" autocomplete="off" @submit.prevent>
                <input
                   type="text"
                   name="username"
@@ -46,7 +46,7 @@
 <script>
 import authService from '../services/authService';
 import Footer from './Footer.vue';
-
+/* eslint-disable */
 export default {
   data() {
     return {

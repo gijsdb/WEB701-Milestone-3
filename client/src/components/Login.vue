@@ -7,7 +7,7 @@
               <h1>Welcome back, login below</h1>
             </div>
           </div>
-            <form class="pb-5">
+            <form class="pb-5" @submit.prevent>
                 <input
                   type="text"
                   name="email"
@@ -34,6 +34,7 @@
 <script>
 import authService from '../services/authService';
 import Footer from './Footer.vue';
+/* eslint-disable */
 
 export default {
   data() {
@@ -60,7 +61,7 @@ export default {
         this.$store.dispatch('setUser', response.data.user);
         console.log(this.$store);
         console.log('success');
-        // this.$router.push('marketplace')
+        this.$router.push('market');
       } catch (error) {
         this.errorMessage = error.response.data.error;
       }

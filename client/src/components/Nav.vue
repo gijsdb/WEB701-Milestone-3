@@ -14,18 +14,45 @@
         <div class="navbar-nav navbar-center">
           <router-link class="nav-item nav-link" to="/">Home</router-link>
           <router-link class="nav-item nav-link" to="/farmers">Farmers</router-link>
+          <router-link v-if="$store.state.isUserLoggedIn" class="nav-link hover"
+            to="/market">
+            Marketplace
+          </router-link>
+          <router-link v-if="$store.state.isUserLoggedIn" class="nav-link hover"
+            to="/account">
+            Account
+          </router-link>
         </div>
       </div>
-      <button class="btn btn-outline-success my-2 my-sm-0">
+      <button v-if="!$store.state.isUserLoggedIn" class="btn btn-outline-success my-2 my-sm-0">
         <router-link class="nav-btn" to="/login">Login</router-link>
       </button>
-      <button class="btn btn-outline-success my-2 my-sm-0">
+      <button v-if="!$store.state.isUserLoggedIn" class="btn btn-outline-success my-2 my-sm-0">
         <router-link class="nav-btn" to="/register">Register</router-link>
+      </button>
+      <button @click="logout" v-if="$store.state.isUserLoggedIn"
+        class="btn btn-outline-success my-2 my-sm-0">
+        Logout
       </button>
     </nav>
 </template>
 
 <script>
+export default {
+  methods: {
+    async logout() {
+      try {
+        this.$store.dispatch('setToken', null);
+        this.$store.dispatch('setUser', null);
+        this.$router.push({
+          name: 'Home',
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+};
 </script>
 
 <style>
