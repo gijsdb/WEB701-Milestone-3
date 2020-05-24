@@ -6,8 +6,8 @@ import Home from '../components/Home.vue';
 import Farmers from '../components/Farmers.vue';
 import Login from '../components/Login.vue';
 import Register from '../components/Register.vue';
-import Market from '../components/Market.vue';
-import Account from '../components/Account.vue';
+import Market from '../components/Market/Market.vue';
+import Account from '../components/Account/Account.vue';
 
 Vue.use(VueRouter);
 

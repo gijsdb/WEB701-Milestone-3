@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Footer from './Footer.vue';
+import Footer from '../Footer.vue';
 
 export default {
   components: {
@@ -35,7 +35,7 @@ export default {
   height: 90vh;
   width: 100vw;
   color: #fff;
-  background-image: url("../assets/img/mainbg.jpg");
+  background-image: url("../../assets/img/mainbg.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
