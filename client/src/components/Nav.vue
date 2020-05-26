@@ -22,18 +22,18 @@
             to="/account">
             Account
           </router-link>
+          <button v-if="!$store.state.isUserLoggedIn" class="btn btn-outline-success my-2 my-sm-0">
+            <router-link class="nav-btn" to="/login">Login</router-link>
+          </button>
+          <button v-if="!$store.state.isUserLoggedIn" class="btn btn-outline-success my-2 my-sm-0">
+            <router-link class="nav-btn" to="/register">Register</router-link>
+          </button>
+          <button @click="logout" v-if="$store.state.isUserLoggedIn"
+           class="btn btn-outline-success my-2 my-sm-0">
+            Logout
+          </button>
         </div>
       </div>
-      <button v-if="!$store.state.isUserLoggedIn" class="btn btn-outline-success my-2 my-sm-0">
-        <router-link class="nav-btn" to="/login">Login</router-link>
-      </button>
-      <button v-if="!$store.state.isUserLoggedIn" class="btn btn-outline-success my-2 my-sm-0">
-        <router-link class="nav-btn" to="/register">Register</router-link>
-      </button>
-      <button @click="logout" v-if="$store.state.isUserLoggedIn"
-        class="btn btn-outline-success my-2 my-sm-0">
-        Logout
-      </button>
     </nav>
 </template>
 
@@ -79,7 +79,7 @@ export default {
 
 .nav-link:hover {
   font-size: 1.7em;
-  text-decoration: bold;
+  font-weight: 500;
   transition: .5s;
 }
 
@@ -100,11 +100,23 @@ export default {
   font-size: 2em !important;
   font-weight: bold;
   color: #42b983 !important;
+  transition: .5s;
+}
 
+.navbar-brand:hover {
+  transition: .5s;
+  font-size: 2.2em !important;
 }
 
 .navbar-collapse.collapse.in {
   display: block!important;
   padding-bottom: 6em;
+}
+
+@media (max-width:992px)  {
+  .navbar-collapse.collapse.in {
+    display: block!important;
+    padding-bottom: 18em;
+  }
 }
 </style>
