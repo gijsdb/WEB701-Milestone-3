@@ -75,9 +75,4 @@ export default {
   padding: 1em 0 1em 0;
   color: #42B983;
 }
-
-.sticky-bottom {
-  position: absolute;
-  bottom: 0;
-}
 </style>

@@ -18,12 +18,12 @@
         <EditDetails/>
       </div>
       <div class="col-md-6">
-        <Orders v-if="checkAccountType"/>
-        <FarmDetails v-if="!checkAccountType"/>
+        <Orders v-if="isBuyerType"/>
+        <FarmDetails v-if="!isBuyerType"/>
       </div>
     </div>
 
-    <div v-if="!checkAccountType" class="row section3 vertical-align">
+    <div v-if="!isBuyerType" class="row section3 vertical-align">
       <div class="col-12">
         <ProductsForSale/>
       </div>
@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     /* eslint-disable */
-    checkAccountType: function () {
+    isBuyerType: function () {
       const accType = this.$store.state.user.accountType;
       if (accType === 'Buyer') {
         return true;

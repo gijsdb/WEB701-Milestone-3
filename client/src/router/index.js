@@ -8,6 +8,7 @@ import Login from '../components/Login.vue';
 import Register from '../components/Register.vue';
 import Market from '../components/Market/Market.vue';
 import Account from '../components/Account/Account.vue';
+import AddProduct from '../components/Market/AddProduct.vue';
 
 Vue.use(VueRouter);
 
@@ -64,6 +65,33 @@ const routes = [
         console.log(error);
         next({
           name: 'Home',
+        });
+      }
+    },
+  },
+  {
+    path: '/addproduct',
+    name: 'AddProduct',
+    component: AddProduct,
+    async beforeEnter(to, from, next) {
+      // const hasPermission = store.state.isUserLoggedIn;
+      const accType = store.state.user.accountType;
+      // let actualType = null;
+      /*
+      if (accType === 'Buyer') {
+        actualType = 'Buyer';
+      } else {
+        actualType = 'Farmer';
+      }
+      */
+      try {
+        if (accType === 'Farmer') {
+          next();
+        }
+      } catch (error) {
+        console.log(error);
+        next({
+          component: Home,
         });
       }
     },

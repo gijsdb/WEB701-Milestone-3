@@ -37,4 +37,9 @@ form input {
   color: #42b983;
   border-width: 1px;
 }
+
+.sticky-bottom {
+  position: absolute !important;
+  bottom: 0 !important;
+}
 </style>

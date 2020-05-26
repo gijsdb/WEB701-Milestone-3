@@ -9,7 +9,7 @@
             type="text"
             name="farmName"
             v-model="farmName"
-            placeholder="farmName"
+            placeholder="Farm name"
             class="mb-3"
           /><br/>
           <input

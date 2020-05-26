@@ -12,6 +12,12 @@
       </div>
     </div>
 
+    <div class="row section2 vertical-align">
+      <div class="col-12">
+        <h1>Database results</h1><br>
+      </div>
+    </div>
+
     <Footer/>
   </div>
 </template>
@@ -41,4 +47,10 @@ export default {
   background-size: cover;
 }
 
+.section2 {
+  height: 90vh;
+  width: 100vw;
+  background-color: #fff;
+  color: #42B983;
+}
 </style>
