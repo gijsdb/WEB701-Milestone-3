@@ -43,5 +43,26 @@ module.exports = {
           error: 'An error occured'
         })
       }
+    },
+    async getfarmershops (req, res) {
+      try {
+        const farmerId = req.params.id
+        try { 
+          Hop.findAll({
+            where: {
+              userId: farmerId,
+            },
+            raw: true,
+          }).then(hop => {
+            res.json(hop);
+          });
+        } catch(error) {
+          console.log(error);
+        }
+      } catch(err) {
+        res.status(500).send({
+          error: 'An error occured'
+        })
+      }
     }
 }

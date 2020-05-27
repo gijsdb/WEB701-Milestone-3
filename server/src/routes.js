@@ -12,6 +12,7 @@ module.exports = (app) => {
 
     app.get('/retrievehops', HopController.retrievehops) 
     app.get('/retrievehop/:id', HopController.retrievehop) 
+    app.get('/getfarmershops/:id', HopController.getfarmershops) 
 
     app.post('/addbid', BidController.addbid)
     app.get('/retrievebids', BidController.retrievebids)  
