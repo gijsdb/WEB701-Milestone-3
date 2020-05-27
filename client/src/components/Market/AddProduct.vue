@@ -48,19 +48,47 @@
                 <input type="number" v-model="price" name="price" placeholder="0 Dollars"><br>
             <div class="error" v-html="error"/><br>
         </form>
-        <button class="btn btn-outline-success" @click="addProduct">Add product</button>
+        <button class="btn btn-outline-success" @click="addHop">Add product</button>
     </div>
     </div>
 </div>
 </template>
 
 <script>
+import hopService from '../../services/hopService';
+
 export default {
+  data() {
+    return {
+      variety: '',
+      weight: '',
+      bitterness: '',
+      sweetness: '',
+      price: '',
+      userId: this.$store.state.user.email,
+      error: null,
+    };
+  },
   components: {
   },
   computed: {
   },
   methods: {
+    async addHop() {
+      try {
+        await hopService.addhop({
+          variety: this.variety,
+          weight: this.weight,
+          bitterness: this.bitterness,
+          sweetness: this.sweetness,
+          price: this.price,
+          userId: this.userId,
+        });
+        // this.$router.replace({'query': null});
+      } catch (error) {
+        this.error = error.response.data.error;
+      }
+    },
   },
 };
 </script>

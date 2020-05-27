@@ -1,7 +1,7 @@
 import Api from './api';
 
 export default {
-  addhop (details) {
+  addhop(details) {
     return Api().post('addhop', details);
-  }
-}
+  },
+};
