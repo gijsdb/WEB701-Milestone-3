@@ -9,6 +9,8 @@ import Register from '../components/Register.vue';
 import Market from '../components/Market/Market.vue';
 import Account from '../components/Account/Account.vue';
 import AddProduct from '../components/Market/AddProduct.vue';
+/* eslint-disable */
+import BuyHop from '../components/Market/BuyHop.vue';
 
 Vue.use(VueRouter);
 
@@ -92,6 +94,24 @@ const routes = [
         console.log(error);
         next({
           component: Home,
+        });
+      }
+    },
+  },
+  {
+    path: '/buyhop/:id',
+    name: 'buyhop',
+    component: BuyHop,
+    async beforeEnter(to, from, next) {
+      const hasPermission = store.state.isUserLoggedIn;
+      try {
+        if (hasPermission) {
+          next();
+        }
+      } catch (error) {
+        console.log(error);
+        next({
+          name: 'Home',
         });
       }
     },
