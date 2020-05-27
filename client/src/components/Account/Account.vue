@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
 
-    <div class="row section1 vertical-align">
+    <div class="row section1 pb-5 vertical-align">
       <div class="col-12">
         <h1>Account settings</h1><br>
         <div class="row">
@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div class="row section2 vertical-align">
+    <div class="row pb-5 section2 vertical-align">
       <div class="col-md-6">
         <EditDetails/>
       </div>
@@ -24,7 +24,7 @@
     </div>
 
     <div v-if="!isBuyerType" class="row section3 vertical-align">
-      <div class="col-12">
+      <div class="col-12 pt-3">
         <ProductsForSale/>
       </div>
     </div>
@@ -81,8 +81,7 @@ export default {
 }
 
 .section3 { 
-  padding: 1em 0;
+  border-top: solid 0.5px lightgrey;
   color: #42B983;
-  background-color: lightgrey;
 }
 </style>

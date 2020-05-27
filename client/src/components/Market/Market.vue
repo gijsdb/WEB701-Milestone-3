@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div class="row section2">
+    <div class="row pt-5 section2">
       <div class="col-12">
         <h2>Hops for sale</h2>
 
@@ -28,7 +28,7 @@
                 <p class="card-text"> Price: {{hop.price}}</p>
                 <p class="card-text"> Added by: {{hop.userId}}</p>
               </div>
-              <router-link :to="{
+              <router-link class="btn btn-success" :to="{
                 name: 'buyhop',
                 params: {id: hop.hopId,
                 variety: hop.variety }

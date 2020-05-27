@@ -3,10 +3,13 @@
 
     <div class="row section1 vertical-align">
       <div class="col-12">
-        <h2>Your products for sale</h2>
-        <div class="row" :key="chunk" v-for="chunk in productChunks">
+        <h2 class="pb-3">Your products for sale</h2>
+        <button class="btn btn-outline-success my-2 my-sm-0">
+            <router-link class="txt-green" to="/addproduct">Add product</router-link>
+        </button>
+        <div class="row pt-5" :key="chunk" v-for="chunk in productChunks">
           <div class="col-md-4" :key="hop.id" v-for="hop in chunk">
-            <div class="card hopCard" style="width: 18rem;">
+            <div class="card" style="width: 18rem;">
               <img src="../../assets/img/isolatedHop.png" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">{{ hop.variety }}</h5>
@@ -16,15 +19,10 @@
                 <p class="card-text"> Price: {{hop.price}}</p>
                 <p class="card-text"> Added by: you!</p>
               </div>
-              <button>Delete hop</button>
+              <button class="btn btn-danger">Delete hop</button>
             </div>
           </div>
         </div>
-
-
-        <button class="btn btn-outline-success my-2 my-sm-0">
-            <router-link class="txt-green" to="/addproduct">Add product</router-link>
-        </button>
       </div>
     </div>
 
@@ -73,5 +71,16 @@ export default {
 
 .txt-green:hover {
   color: #fff;
+}
+
+button { 
+  transition: .5s;
+}
+
+button:hover { 
+  color: #fff;
+  transition: .5s;
+  padding: 1em;
+  font-size: 1.1em;
 }
 </style>
