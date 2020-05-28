@@ -2,21 +2,20 @@ const {Bid} = require('../models')
 
 module.exports = {
     async retrievebids (req, res) {
-        try {
-          const anybids = await Bid.findAll().then(function (bids) {
-            res.json(bids)
-          })
-          if(!anybids) {
-            res.status(403).send({
-                error: 'No bids found'
-            })
-          }
-        } catch(err) {
-          console.log(err)
-          res.status(400).send({
-              error: 'Failed to retrieve bid'
-          })
-        }
+      const hopId = req.params.id
+      console.log(hopId)
+      try { 
+        Bid.findAll({
+          where: {
+            hopId: hopId,
+          },
+          raw: true,
+        }).then(bid => {
+          res.json(bid);
+        });
+      } catch(error) {
+        console.log(error);
+      }
     },
     async addbid (req, res) {
       try {
