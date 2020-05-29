@@ -1,6 +1,8 @@
 const {User} = require('../models')
 const jwt = require('jsonwebtoken')
 const config = require('../config/config')
+const Promise = require('bluebird')
+const bcrypt = Promise.promisifyAll(require('bcrypt-nodejs'))
 
 function jwtSignUser (user) {
   const ONE_WEEK = 60 * 60 * 24 * 7
@@ -8,6 +10,8 @@ function jwtSignUser (user) {
     expiresIn: ONE_WEEK
   })
 }
+
+const SALT_FACTOR = 8
 
 module.exports = {
     async register (req, res) {
@@ -58,5 +62,43 @@ module.exports = {
             error: 'An error occured'
         })
       }
-    }
+    },
+    async updateaccount (req, res) {
+      try {
+        const email = req.body.email;
+        const password = req.body.password;
+        console.log(email, password);
+        const newPass = await bcrypt
+        .genSaltAsync(SALT_FACTOR)
+        .then(salt => bcrypt.hashAsync(password, salt, null))
+        .then(hash => {
+          this.newPass = hash
+          console.log(this.newPass)
+        });
+
+        const isEmailTaken = await User.findOne({
+          where: {
+            email: email
+          }
+        })
+        if(isEmailTaken) {
+          console.log("email in use")
+          res.status(403).send({
+            error: 'That email is in use'
+          })
+        } else {
+          await User.update(
+            { 
+              email: email,
+              password: newPass,
+             },
+            { where: { email: email } }
+          ).then(
+            res.send("Sucessful update"),
+          );
+        }     
+        } catch (err) {
+          res.send(err);
+        }
+    },
 }

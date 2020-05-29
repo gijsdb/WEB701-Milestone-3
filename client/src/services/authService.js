@@ -7,4 +7,7 @@ export default {
   login(credentials) {
     return Api().post('login', credentials);
   },
+  updateaccount(credentials) {
+    return Api().put('updateaccount', credentials);
+  },
 };

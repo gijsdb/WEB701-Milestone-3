@@ -22,6 +22,8 @@
         </form>
         <button class="btn btn-outline-success" @click="updateAccount">Update</button>
         <button class="btn btn-outline-danger" @click="deleteAccount">Delete account</button>
+        <div class="error" v-html="errorMessage"/><br>
+        <div class="error" v-html="successMessage"/><br>
       </div>
     </div>
 
@@ -29,13 +31,33 @@
 </template>
 
 <script>
+import authService from '../../services/authService';
 
 export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+      errorMessage: null,
+      successMessage: null,
+    };
+  },
   components: {
   },
   computed: {
   },
   methods: {
+    async updateAccount() {
+      try {
+        await authService.updateaccount({
+          email: this.email,
+          password: this.password,
+        });
+        console.log('success');
+      } catch (error) {
+        this.errorMessage = error.response.data.error;
+      }
+    },
   },
 };
 </script>
