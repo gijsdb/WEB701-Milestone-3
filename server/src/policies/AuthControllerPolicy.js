@@ -37,11 +37,11 @@ module.exports = {
     updateaccount(req, res, next) {
         console.log("checking password")
         const schema = {
-            email: joi.string().email(),
+            newEmail: joi.string().email(),
             password: joi.string().regex(
                 new RegExp('^[a-zA-Z0-9]{8,32}')
             ),
-            accountType: joi.allow()
+            oldEmail: joi.allow()
         }
         const { error, value } = joi.validate(req.body, schema)
 

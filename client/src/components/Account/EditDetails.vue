@@ -8,7 +8,7 @@
           <input
             type="text"
             name="email"
-            v-model="email"
+            v-model="newEmail"
             placeholder="email"
             class="mb-3"
           /><br/>
@@ -36,7 +36,8 @@ import authService from '../../services/authService';
 export default {
   data() {
     return {
-      email: '',
+      oldEmail: this.$store.state.user.email,
+      newEmail: '',
       password: '',
       errorMessage: null,
       successMessage: null,
@@ -50,7 +51,8 @@ export default {
     async updateAccount() {
       try {
         await authService.updateaccount({
-          email: this.email,
+          oldEmail: this.oldEmail,
+          newEmail: this.newEmail,
           password: this.password,
         });
         console.log('success');

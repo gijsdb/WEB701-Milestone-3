@@ -39,6 +39,7 @@ module.exports = {
           res.status(403).send({
             error: 'No user found with details'
           })
+          return;
         }
 
         const isPasswordValid = await user.comparePassword(password)
@@ -65,9 +66,9 @@ module.exports = {
     },
     async updateaccount (req, res) {
       try {
-        const email = req.body.email;
+        const newEmail = req.body.newEmail;
+        const oldEmail = req.body.oldEmail;
         const password = req.body.password;
-        console.log(email, password);
         const newPass = await bcrypt
         .genSaltAsync(SALT_FACTOR)
         .then(salt => bcrypt.hashAsync(password, salt, null))
@@ -78,25 +79,29 @@ module.exports = {
 
         const isEmailTaken = await User.findOne({
           where: {
-            email: email
+            email: newEmail
           }
-        })
+        });
+
         if(isEmailTaken) {
           console.log("email in use")
           res.status(403).send({
             error: 'That email is in use'
           })
         } else {
+          console.log("updating")
           await User.update(
             { 
-              email: email,
+              email: newEmail,
               password: newPass,
              },
-            { where: { email: email } }
-          ).then(
-            res.send("Sucessful update"),
-          );
-        }     
+            { where: { 
+              email: oldEmail 
+            },
+          }).then(function (result) {
+            console.log(result);   
+          });
+        }
         } catch (err) {
           res.send(err);
         }
