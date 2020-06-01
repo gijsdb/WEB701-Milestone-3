@@ -1,6 +1,7 @@
 const AuthController = require('./controllers/AuthController')
 const HopController = require('./controllers/HopController')
 const BidController = require('./controllers/BidController')
+const FarmController = require('./controllers/FarmController')
 const AuthControllerPolicy = require('./policies/AuthControllerPolicy')
 
 module.exports = (app) => {
@@ -17,4 +18,8 @@ module.exports = (app) => {
 
     app.post('/addbid', BidController.addbid)
     app.get('/retrievebids/:id', BidController.retrievebids)  
+
+    app.post('/addfarm', FarmController.addfarm)
+    app.get('/retrievefarms', FarmController.retrievefarms)
+    app.get('/getfarmersfarm/:id', FarmController.getfarmersfarm)
 }

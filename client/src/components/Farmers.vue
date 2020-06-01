@@ -11,9 +11,20 @@
      </div>
     </div>
 
-    <div class="row section2">
+    <div class="row pt-5 section2">
       <div class="col">
-        <h2>Farm details appear here when added</h2>
+        <h2>Farms selling on HopsCo</h2>
+
+         <div class="row pt-5" :key="chunk" v-for="chunk in productChunks">
+          <div class="col-md-4" :key="farm.farmId" v-for="farm in chunk">
+            <div class="card hopCard" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{ farm.farmName }}</h5>
+                <p class="card-text"> Website: {{farm.farmWebsite}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <Footer/>
@@ -21,15 +32,34 @@
 </template>
 
 <script>
+import _ from 'lodash';
+import axios from 'axios';
 import Footer from './Footer.vue';
 
 export default {
+  data() {
+    return {
+      farms: [],
+    };
+  },
   components: {
     Footer,
   },
   computed: {
+    productChunks() {
+      return _.chunk(Object.values(this.farms), 3);
+    },
   },
   methods: {
+  },
+  /* eslint-disable */
+  created: function () {
+    axios
+      .get('http://localhost:8091/retrievefarms')
+      /* eslint-disable */
+      .then(res => {
+        this.farms = res.data;
+      });
   },
 };
 </script>
