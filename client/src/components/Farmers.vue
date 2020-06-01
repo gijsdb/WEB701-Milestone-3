@@ -12,14 +12,8 @@
     </div>
 
     <div class="row section2">
-      <div class="col-md-4 farmer-module">
-
-      </div>
-      <div class="col-md-4">
-
-      </div>
-      <div class="col-md-4">
-
+      <div class="col">
+        <h2>Farm details appear here when added</h2>
       </div>
     </div>
     <Footer/>
@@ -54,7 +48,7 @@ export default {
 .section2 {
   height: 80vh;
   width: 100vw;
-  background-color: yellow;
+  background-color: #fff;
 }
 
 .farmer-module {

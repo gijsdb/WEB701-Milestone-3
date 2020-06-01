@@ -74,18 +74,30 @@ export default {
   },
   methods: {
     async addHop() {
-      try {
-        await hopService.addhop({
-          variety: this.variety,
-          weight: this.weight,
-          bitterness: this.bitterness,
-          sweetness: this.sweetness,
-          price: this.price,
-          userId: this.userId,
-        });
-        this.successMsg = 'Hop added to the market';
-      } catch (error) {
-        this.errorMsg = error.response.data.error.name;
+      const bitterVal = this.bitterness;
+      const sweetVal = this.sweetness;
+
+      if (bitterVal <= 10 && sweetVal <= 10) {
+        if (bitterVal >= 1 && sweetVal >= 1) {
+          try {
+            await hopService.addhop({
+              variety: this.variety,
+              weight: this.weight,
+              bitterness: this.bitterness,
+              sweetness: this.sweetness,
+              price: this.price,
+              userId: this.userId,
+            });
+            this.error = null;
+            this.successMsg = 'Hop added to the market';
+          } catch (error) {
+            this.errorMsg = 'Check your input and try again';
+          }
+        } else {
+          this.error = 'Please enter values for bitterness and sweetness between 1 and 10';
+        }
+      } else {
+        this.errorMsg = 'Please enter values for bitterness and sweetness between 1 and 10';
       }
     },
   },
