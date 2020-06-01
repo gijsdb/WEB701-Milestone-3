@@ -63,9 +63,9 @@ export default {
         this.errorMessage = error.response.data.error;
       }
     },
-  },
-  async deleteAccount() {
-    console.log('yet to be implemented');
+    async deleteAccount() {
+      alert('yet to be implemented');
+    },
   },
 };
 </script>
