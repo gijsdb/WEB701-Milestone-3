@@ -30,11 +30,22 @@
 <script>
 
 export default {
+  data() {
+    return {
+      farmName: this.farmName,
+      website: this.website,
+      errorMsg: null,
+      successMsg: null,
+    };
+  },
   components: {
   },
   computed: {
   },
   methods: {
+    async updateFarm() {
+      alert('Not yet implemented');
+    },
   },
 };
 </script>

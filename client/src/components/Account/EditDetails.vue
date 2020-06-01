@@ -19,11 +19,11 @@
             placeholder="Password"
             class="mb-3"
           />
+        <div class="error" v-html="errorMessage"/><br>
+        <div class="error" v-html="successMessage"/><br>
         </form>
         <button class="btn btn-outline-success" @click="updateAccount">Update</button>
         <button class="btn btn-outline-danger" @click="deleteAccount">Delete account</button>
-        <div class="error" v-html="errorMessage"/><br>
-        <div class="error" v-html="successMessage"/><br>
       </div>
     </div>
 
@@ -56,10 +56,16 @@ export default {
           password: this.password,
         });
         this.successMessage = 'Account details updated, please log in again';
+        if (this.$router.path !== '/login') {
+          this.$router.push('/login');
+        }
       } catch (error) {
         this.errorMessage = error.response.data.error;
       }
     },
+  },
+  async deleteAccount() {
+    console.log('yet to be implemented');
   },
 };
 </script>

@@ -16,7 +16,6 @@
                   <label>Weight (KG)</label><br/>
                   <input
                     type="number"
-                    v-on:input="calculatePrice"
                     v-model="weight"
                     name="amount"
                     min="1"
@@ -25,7 +24,6 @@
                     <label>Bitterness</label><br/>
                     <input
                       type="number"
-                      v-on:input="calculatePrice"
                       v-model="bitterness"
                       name="bitterness"
                       placeholder="bitterness"
@@ -35,7 +33,6 @@
                     <label>Sweetness</label><br/>
                     <input
                       type="number"
-                      v-on:input="calculatePrice"
                       v-model="sweetness"
                       name="sweetness"
                       placeholder="sweetness"
@@ -46,7 +43,8 @@
             </div>
                 <label>Price (NZD)</label><br>
                 <input type="number" v-model="price" name="price" placeholder="0 Dollars"><br>
-            <div class="error" v-html="error"/><br>
+            <div class="error" v-html="errorMsg"/><br>
+            <div class="error" v-html="successMsg"/>
         </form>
         <button class="btn btn-outline-success" @click="addHop">Add product</button>
     </div>
@@ -66,7 +64,8 @@ export default {
       sweetness: '',
       price: '',
       userId: this.$store.state.user.email,
-      error: null,
+      errorMsg: null,
+      successMsg: null,
     };
   },
   components: {
@@ -84,9 +83,9 @@ export default {
           price: this.price,
           userId: this.userId,
         });
-        // this.$router.replace({'query': null});
+        this.successMsg = 'Hop added to the market';
       } catch (error) {
-        this.error = error.response.data.error;
+        this.errorMsg = error.response.data.error.name;
       }
     },
   },

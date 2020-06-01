@@ -113,7 +113,9 @@ module.exports = {
             userId: oldEmail,
           },
         }).then(function (result) {
-            console.log(result);   
+            res.status(200).send({
+              error: 'Success'
+            });
           });
         }
         } catch (err) {

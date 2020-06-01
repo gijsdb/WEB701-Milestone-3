@@ -34,7 +34,7 @@
                   <option value="Buyer">Buyer</option>
                 </select>
                 <div class="error" v-html="errorMessage"/><br>
-                 <div class="error" v-html="successMessage"/><br>
+                <div class="error" v-html="successMessage"/><br>
                 <button class="btn btn-outline-success" @click="register">Register</button>
             </form>
         </div>
