@@ -77,10 +77,10 @@ export default {
         this.$store.dispatch('setUser', response.data.user);
         this.errorMessage = null;
         this.successMessage = 'User created';
+        this.$router.push('login');
       } catch (error) {
-        console.log(error);
-        console.log(error.data);
-        this.error = error.response.data.error;
+        console.log(error.response.data.error)
+        this.errorMessage = error.response.data.error;
       }
     },
   },

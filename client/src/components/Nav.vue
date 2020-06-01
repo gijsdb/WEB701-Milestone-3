@@ -44,9 +44,7 @@ export default {
       try {
         this.$store.dispatch('setToken', null);
         this.$store.dispatch('setUser', null);
-        this.$router.push({
-          name: 'Home',
-        });
+        this.$router.push('/');
       } catch (error) {
         console.log(error);
       }

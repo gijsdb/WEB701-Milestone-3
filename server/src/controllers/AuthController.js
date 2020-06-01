@@ -1,4 +1,5 @@
 const {User} = require('../models')
+const {Hop} = require('../models')
 const jwt = require('jsonwebtoken')
 const config = require('../config/config')
 const Promise = require('bluebird')
@@ -20,10 +21,17 @@ module.exports = {
         res.send(user.toJSON())
         console.log("User created success")
       } catch(err) {
-        console.log(err)
-        res.status(400).send({
-            error: 'This email is in use'
-        })
+        if(err.name === "SequelizeUniqueConstraintError") {
+          const fields = err.fields;
+          res.status(400).send({
+            error: fields + " must be unique"
+          })
+        } else {
+          console.log(err)
+          res.status(400).send({
+            error: err.name
+          })
+        }
       }
     },
     async login (req, res) {
@@ -35,7 +43,6 @@ module.exports = {
           }
         })
         if(!user) {
-          console.log("no user found")
           res.status(403).send({
             error: 'No user found with details'
           })
@@ -58,9 +65,9 @@ module.exports = {
         })
 
       } catch(err) {
-        console.log(err)
+        console.log(err.name)
         res.status(500).send({
-            error: 'An error occured'
+            error: err.name
         })
       }
     },
@@ -98,7 +105,14 @@ module.exports = {
             { where: { 
               email: oldEmail 
             },
-          }).then(function (result) {
+          }); 
+          await Hop.update({ 
+            userId: newEmail,
+          },
+          { where: { 
+            userId: oldEmail,
+          },
+        }).then(function (result) {
             console.log(result);   
           });
         }

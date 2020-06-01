@@ -55,7 +55,7 @@ export default {
           newEmail: this.newEmail,
           password: this.password,
         });
-        console.log('success');
+        this.successMessage = 'Account details updated, please log in again';
       } catch (error) {
         this.errorMessage = error.response.data.error;
       }
