@@ -17,12 +17,14 @@
                   <input
                     type="number"
                     v-model="weight"
+                    v-on:input="calculatePrice"
                     name="amount"
                     min="1"
                     max="100"
                     placeholder="weight"><br/>
                     <label>Bitterness</label><br/>
                     <input
+                      v-on:input="calculatePrice"
                       type="number"
                       v-model="bitterness"
                       name="bitterness"
@@ -32,6 +34,7 @@
                       max="10"><br/>
                     <label>Sweetness</label><br/>
                     <input
+                      v-on:input="calculatePrice"
                       type="number"
                       v-model="sweetness"
                       name="sweetness"
@@ -98,6 +101,33 @@ export default {
         }
       } else {
         this.errorMsg = 'Please enter values for bitterness and sweetness between 1 and 10';
+      }
+    },
+    calculatePrice() {
+      /* eslint-disable */
+      const weight = this.weight;
+      let price;
+      let multiplier;
+      if (weight >= 1 && weight <= 20) {
+        multiplier = 3;
+        price = weight * multiplier;
+        this.price = price.toFixed(2);
+      } else if (weight >= 21 && weight <= 40) {
+        multiplier = 2.7;
+        price = weight * multiplier;
+        this.price = price.toFixed(2);
+      } else if (weight >= 41 && weight <= 60) {
+        multiplier = 2.5;
+        price = weight * multiplier;
+        this.price = price.toFixed(2);
+      } else if (weight >= 61 && weight <= 80) {
+        multiplier = 2.3;
+        price = weight * multiplier;
+        this.price = price.toFixed(2);
+      } else if (weight >= 81 && weight <= 100) {
+        multiplier = 2.1;
+        price = weight * multiplier;
+        this.price = price.toFixed(2);
       }
     },
   },
