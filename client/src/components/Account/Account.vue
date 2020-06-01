@@ -19,7 +19,7 @@
       </div>
       <div class="col-md-6">
         <Orders v-if="isBuyerType"/>
-        <FarmDetails v-if="!isBuyerType"/>
+        <FarmDetails :userFarm="userFarm" v-if="!isBuyerType"/>
       </div>
     </div>
 
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Footer from '../Footer.vue';
 import EditDetails from './EditDetails.vue';
 import Orders from './Orders.vue';
@@ -41,6 +42,11 @@ import FarmDetails from './FarmDetails.vue';
 import ProductsForSale from './ProductsForSale.vue';
 
 export default {
+  data() {
+    return {
+      userFarm: [],
+    };
+  },
   components: {
     EditDetails,
     Orders,
@@ -59,6 +65,17 @@ export default {
     },
   },
   methods: {
+  },
+  async created() {
+    axios
+      .get('http://localhost:8091/getfarmersfarm/' + this.$store.state.user.email)
+      /* eslint-disable */
+      .then(res => {
+        this.userFarm = res.data;
+      });
+      if(this.userFarm.length == 0) {
+        this.userFarm.push("Not set", "Not set")
+      }
   },
 };
 </script>

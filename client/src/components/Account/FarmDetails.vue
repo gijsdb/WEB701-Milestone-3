@@ -4,8 +4,8 @@
     <div class="row section1 vertical-align">
       <div class="col-12 pt-3">
         <h1>Your farm details</h1>
-        <p>{{ userFarm.farmName }}</p>
-        <p>{{ userFarm.farmWebsite }}</p>
+        <p>{{ this.$props.userFarm[0].farmName}}</p>
+        <p>{{ this.$props.userFarm[0].farmWebsite }}</p>
       </div>
       <div class="col-12 pt-3">
         <h2>Change farm details</h2><br>
@@ -35,13 +35,12 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 import farmService from '../../services/farmService';
 
 export default {
   data() {
     return {
-      userFarm: [],
       farmName: this.farmName,
       website: this.website,
       userId: this.$store.state.user.email,
@@ -53,15 +52,7 @@ export default {
   },
   computed: {
   },
-  /* eslint-disable */
-  async created() {
-    axios
-      .get('http://localhost:8091/getfarmersfarm/' + this.$store.state.user.email)
-      /* eslint-disable */
-      .then(res => {
-        this.userFarm = res.data;
-      });
-  },
+  props: ['userFarm'],
   methods: {
     async addFarm() {
       try {
