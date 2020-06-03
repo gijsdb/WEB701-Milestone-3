@@ -6,13 +6,14 @@
         <h1>Welcome to HopsCo</h1><br>
         <div class="row">
            <div class="col-12">
-            <button class="btn btn-outline-light">Learn more</button>
+            <button @click="smoothScroll"
+            class="btn btn-outline-light">Learn more</button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="row section2 pt-5 pb-5">
+    <div id="scrollpoint" class="row section2 pt-5 pb-5">
       <div class="col-12">
         <h2>We provide the best quality hops from the local area</h2>
       </div>
@@ -68,6 +69,9 @@ export default {
   computed: {
   },
   methods: {
+    smoothScroll() {
+      document.getElementById('scrollpoint').scrollIntoView({ behavior: 'smooth' });
+    },
   },
 };
 </script>

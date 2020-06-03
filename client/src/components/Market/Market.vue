@@ -6,13 +6,13 @@
         <h1>Welcome to the Marketplace</h1><br>
         <div class="row">
            <div class="col-12">
-            <button class="btn btn-outline-light">Shop now</button>
+            <button @click="smoothScroll" class="btn btn-outline-light">Shop now</button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="row pt-5 section2">
+    <div id="scrollpoint" class="row pt-5 section2">
       <div class="col-12">
         <h2>Hops for sale</h2>
 
@@ -72,6 +72,9 @@ export default {
       });
   },
   methods: {
+    smoothScroll() {
+      document.getElementById('scrollpoint').scrollIntoView({ behavior: 'smooth' });
+    },
   },
 };
 </script>

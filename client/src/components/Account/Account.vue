@@ -6,14 +6,14 @@
         <h1>Account settings</h1><br>
         <div class="row">
            <div class="col-12">
-            <p>Manage your account here</p><br>
+            <button @click="smoothScroll" class="btn btn-outline-light">Manage account</button>
             <p>You are logged in as {{$store.state.user.accountType}}</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="row pb-5 section2 vertical-align">
+    <div id="scrollpoint" class="row pb-5 section2 vertical-align">
       <div class="col-md-6">
         <EditDetails/>
       </div>
@@ -65,6 +65,9 @@ export default {
     },
   },
   methods: {
+    smoothScroll() {
+      document.getElementById('scrollpoint').scrollIntoView({ behavior: 'smooth' });
+    },
   },
   async created() {
     axios

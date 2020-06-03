@@ -5,13 +5,13 @@
        <h1>Meet the farmers behind some of the best hops in the region</h1>
        <div class="row">
            <div class="col-12">
-            <button class="btn btn-outline-light">Learn more</button>
+            <button @click="smoothScroll" class="btn btn-outline-light">Learn more</button>
           </div>
         </div>
      </div>
     </div>
 
-    <div class="row pt-5 section2">
+    <div id="scrollpoint" class="row pt-5 section2">
       <div class="col">
         <h2>Farms selling on HopsCo</h2>
 
@@ -51,6 +51,9 @@ export default {
     },
   },
   methods: {
+    smoothScroll() {
+      document.getElementById('scrollpoint').scrollIntoView({ behavior: 'smooth' });
+    },
   },
   /* eslint-disable */
   created: function () {
