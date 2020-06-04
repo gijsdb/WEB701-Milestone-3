@@ -11,7 +11,7 @@
      </div>
     </div>
 
-    <div id="scrollpoint" class="row pt-5 section2">
+    <div id="scrollpoint" class="row pt-5 pb-5 section2">
       <div class="col">
         <h2>Farms selling on HopsCo</h2>
 
@@ -79,7 +79,6 @@ export default {
 }
 
 .section2 {
-  height: 80vh;
   width: 100vw;
   background-color: #fff;
 }
