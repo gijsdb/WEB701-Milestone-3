@@ -15,36 +15,34 @@
 
     <div id="scrollpoint" class="row section2 pt-5 pb-5">
       <div class="col-12">
-        <h2>We provide the best quality hops from the local area</h2>
+        <h2>We provide the best quality hops from the beautiful Tasman region in New Zealand.</h2>
       </div>
       <div class="col-12">
         <img src="../assets/img/isolatedHop.png" class="isolatedhop pt-3"/>
       </div>
     </div>
 
-    <div class="row section3 vertical-align">
+    <div class="row section3 pt-5 pb-5">
       <div class="col-md-4">
-        <h3>Variety</h3>
+        <h3>Sell Hops</h3>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione totam illo,
-          nesciunt dignissimos ad. Magni dolorum culpa sit doloremque repellendus numquam.
-          Voluptas quas laborum nemo esse autem quo tenetur!
+          Sign up as a farmer, register your farm and sell hops to customers from around
+          New Zealand. HopsCo features an auction system where you can sell your hops at
+          any price you want!
         </p>
       </div>
       <div class="col-md-4">
-        <h3>Consistency</h3>
+        <h3>Buy Hops</h3>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione totam illo,
-          nesciunt dignissimos ad. Magni dolorum culpa sit doloremque repellendus numquam.
-          Voluptas quas laborum nemo esse autem quo tenetur!
+          Buy fresh, quality Hops from farmers around the Tasman region. Sign up as a
+          customer and visit the Marketplace to see some of the great deals available.
         </p>
       </div>
       <div class="col-md-4">
-        <h3>Quality</h3>
+        <h3>Quality Assured</h3>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione totam illo,
-          nesciunt dignissimos ad. Magni dolorum culpa sit doloremque repellendus numquam.
-          Voluptas quas laborum nemo esse autem quo tenetur!
+          All hops are to meet HopsCo standards so we quality can be assured to all of
+          our customers.
         </p>
       </div>
     </div>
@@ -102,6 +100,10 @@ export default {
   width: 100vw;
   color: #fff;
   background-color: #42B983;
+}
+
+p {
+  font-size: 1.1em;
 }
 
 .section4 {
