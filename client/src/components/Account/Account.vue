@@ -71,7 +71,7 @@ export default {
   },
   async created() {
     axios
-      .get('http://localhost:8091/getfarmersfarm/' + this.$store.state.user.email)
+      .get('http://localhost:8091/api/getfarmersfarm/' + this.$store.state.user.email)
       /* eslint-disable */
       .then(res => {
         this.userFarm = res.data;

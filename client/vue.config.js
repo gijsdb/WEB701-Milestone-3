@@ -6,5 +6,6 @@ module.exports = {
         args[0].title = 'HopsCo'
         return args
       })
-    }
+    },
+    //publicPath: "/web701_si/dist/",
   }

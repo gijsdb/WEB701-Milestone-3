@@ -5,21 +5,21 @@ const FarmController = require('./controllers/FarmController')
 const AuthControllerPolicy = require('./policies/AuthControllerPolicy')
 
 module.exports = (app) => {
-    app.post('/register', AuthControllerPolicy.register, AuthController.register) 
+    app.post('/api/register', AuthControllerPolicy.register, AuthController.register) 
 
-    app.post('/login', AuthController.login) 
-    app.put('/updateaccount', AuthControllerPolicy.updateaccount, AuthController.updateaccount) 
+    app.post('/api/login', AuthController.login) 
+    app.put('/api/updateaccount', AuthControllerPolicy.updateaccount, AuthController.updateaccount) 
 
-    app.post('/addhop', HopController.addhop) 
+    app.post('/api/addhop', HopController.addhop) 
 
-    app.get('/retrievehops', HopController.retrievehops) 
-    app.get('/retrievehop/:id', HopController.retrievehop) 
-    app.get('/getfarmershops/:id', HopController.getfarmershops) 
+    app.get('/api/retrievehops', HopController.retrievehops) 
+    app.get('/api/retrievehop/:id', HopController.retrievehop) 
+    app.get('/api/getfarmershops/:id', HopController.getfarmershops) 
 
-    app.post('/addbid', BidController.addbid)
-    app.get('/retrievebids/:id', BidController.retrievebids)  
+    app.post('/api/addbid', BidController.addbid)
+    app.get('/api/retrievebids/:id', BidController.retrievebids)  
 
-    app.post('/addfarm', FarmController.addfarm)
-    app.get('/retrievefarms', FarmController.retrievefarms)
-    app.get('/getfarmersfarm/:id', FarmController.getfarmersfarm)
+    app.post('/api/addfarm', FarmController.addfarm)
+    app.get('/api/retrievefarms', FarmController.retrievefarms)
+    app.get('/api/getfarmersfarm/:id', FarmController.getfarmersfarm)
 }

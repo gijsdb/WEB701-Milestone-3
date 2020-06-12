@@ -65,7 +65,7 @@ export default {
   /* eslint-disable */
   created: function () {
     axios
-      .get('http://localhost:8091/retrievehops')
+      .get('http://localhost:8091/api/retrievehops')
       /* eslint-disable */
       .then(res => {
         this.hops = res.data;

@@ -58,7 +58,7 @@ export default {
   /* eslint-disable */
   created: function () {
     axios
-      .get('http://localhost:8091/retrievefarms')
+      .get('http://localhost:8091/api/retrievefarms')
       /* eslint-disable */
       .then(res => {
         this.farms = res.data;

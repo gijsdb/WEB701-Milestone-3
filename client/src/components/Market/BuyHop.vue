@@ -54,14 +54,14 @@ export default {
   created: function () {
     axios
       /* eslint-disable */
-      .get('http://localhost:8091/retrievehop/' + this.$route.params.id)
+      .get('http://localhost:8091/api/retrievehop/' + this.$route.params.id)
       .then(res => {
         this.hop = res.data;
       });
   },
   mounted: function () {
      axios
-      .get('http://localhost:8091/retrievebids/' + this.$route.params.id)
+      .get('http://localhost:8091/api/retrievebids/' + this.$route.params.id)
         .then(res => {
           this.bids = res.data;
           this.bids.forEach(bid => {

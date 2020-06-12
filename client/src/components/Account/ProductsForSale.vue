@@ -49,7 +49,7 @@ export default {
   async created() {
     axios
       /* eslint-disable */
-      .get('http://localhost:8091/getfarmershops/' + this.$store.state.user.email)
+      .get('http://localhost:8091/api/getfarmershops/' + this.$store.state.user.email)
       .then(res => {
         this.hops = res.data;
       });
